@@ -1,0 +1,24 @@
+.aside {
+    width: 100%;
+    text-align: center;
+    @extend %main-font;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    @media (min-width: 600px) {
+        width: 50%;
+    }
+    @media (min-width: 1200px) {
+        min-width: 210px;
+    }
+    &--left {
+        order: 3;
+        background: $aside-left-bg;
+        @media (min-width: 1200px) {
+            order: 0;
+        }
+    }
+    &--right {
+        order: 3;
+        background-color: $aside-right-bg;
+    }
+}

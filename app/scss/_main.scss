@@ -1,0 +1,28 @@
+    .main {
+        font-size: 17px;
+        font-weight: 600;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        @media (min-width: 600px) {
+            font-size: 20px;
+        }
+        @media (min-width: 1200px) {
+            flex-wrap: nowrap;
+        }
+        &__text {
+            padding-left: 30px;
+            padding-right: 30px;
+            margin-bottom: 30px;
+        }
+        &__title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            @media (min-width: 600px) {
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+        }
+    }

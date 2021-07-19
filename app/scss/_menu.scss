@@ -1,0 +1,122 @@
+.menu {
+    &__btn {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 25px;
+        right: 20px;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        z-index: 2;
+        background-color: $header-bg;
+        border-radius: 5px;
+        @media (min-width: 480px) {
+            top: 40px;
+        }
+        @media (min-width: 991px) {
+            display: none;
+        }
+    }
+    &__btn>span,
+    &__btn>span::before,
+    &__btn>span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: #000;
+        transition: all .8s;
+    }
+    &__btn>span::before {
+        content: '';
+        top: -10px;
+    }
+    &__btn>span::after {
+        content: '';
+        top: 10px;
+    }
+    &__box {
+        display: block;
+        position: fixed;
+        opacity: 0;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        list-style: none;
+        text-align: center;
+        background-color: $cards-border;
+        transition: all .7s;
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+        @media (min-width: 991px) {
+            opacity: 1;
+            display: flex;
+            position: relative;
+            right: 0;
+            background-color: transparent;
+            box-shadow: none;
+            width: auto;
+            padding: 20px 0;
+        }
+    }
+    &__item+.menu__item {
+        @media (min-width: 991px) {
+            margin-left: 15px;
+        }
+    }
+    &__link {
+        display: block;
+        padding: 12px 24px;
+        color: #333;
+        font-family: 'Arial', 'Veranda', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all .8s;
+        @media (min-width: 991px) {
+            border-radius: 10px;
+            border: 2px solid transparent;
+            padding: 8px 10px;
+        }
+    }
+    &__link:hover {
+        background-color: #CFD8DC;
+        @media (min-width: 991px) {
+            border: 2px solid #000;
+            background-color: transparent;
+        }
+    }
+}
+
+#menu__toggle {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    @media (min-width: 991px) {
+        display: none;
+    }
+    &:checked {
+        ~.menu__btn>span {
+            transform: rotate(45deg);
+            background-color: transparent;
+        }
+        ~.menu__btn>span::before {
+            top: 0;
+            transform: rotate(0);
+        }
+        ~.menu__btn>span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+        ~.menu__box {
+            opacity: 1;
+            right: 0;
+        }
+        ~.menu__btn {
+            background-color: transparent;
+        }
+    }
+}
